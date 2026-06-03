@@ -52,9 +52,6 @@ bg.add( MainFrame );
 //bg.add(MainScroll);
 
 
-rect1 = new Rectangle(0,0,50,300);
-rect1.setLineWidth(10);
-bg.add(rect1);
 
 
 
