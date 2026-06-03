@@ -1,0 +1,4 @@
+git will automatically ignore an empty directory
+js is neccesary to store the javascript files
+this file is filler to have git not treat js as an empty directory
+thank you for your understanding or whatever

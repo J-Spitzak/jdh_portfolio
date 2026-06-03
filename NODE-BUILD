@@ -1,0 +1,11 @@
+rm js/nodeSim.js
+js/nodeSim.js
+../jdh/bs/bs.py -i ./sim-src sim-src/simulation.js > js/nodeSim.js
+echo "\n"
+echo "file mixing is finished,"
+echo "starting nodejs interpreter"
+echo "\n"
+echo "\n"
+echo "here come the errors:"
+echo "\n"
+node js/nodeSim.js
