@@ -55,19 +55,19 @@ MainScroll.add(rect);
 ////////////////////////Name and Picture///////////////////
 startY = 0;
 
-nameTile = new Text(.2,400,"Jason Spitzak");
+nameTile = new Text(200,400,"Jason Spitzak");
 nameTile.setAlignment(ALIGN_ABOVE_LEFT);
 nameTile.setFontSize(42);
 
 
-img = new ImageRectangle( .7, .1, 400, 400 );
+img = new ImageRectangle( 600, 200, 400, 400 );
 img.source( "./Me.jpg" );
 
-Namebkg = new Rectangle(0,0,1,700);
-rect2.setBackgroundPaint( rgba( .5, .5, .2 ,.05) );
-Namebkg.setLineWidth( 0 );
+//Namebkg = new Rectangle(0,0,1,700);
+//rect2.setBackgroundPaint( rgba( .5, .5, .2 ,.05) );
+//Namebkg.setLineWidth( 0 );
 
-MainScroll.add(Namebkg);
+//MainScroll.add(Namebkg);
 MainScroll.add(nameTile);
 MainScroll.add(img);
 
