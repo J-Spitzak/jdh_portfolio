@@ -1,81 +1,53 @@
 
 //BSInclude JDH.js
-
 //BSInclude frame.js
-
-//BSInclude button.js
-
+//BSInclude tile.js
 //BSInclude boxButton.js
+//BSInclude menuBar.js
 
-//BSInclude textInput.js
+drawing = new JDHDrawing( "testDraw" );
 
-//BSInclude valueInput.js
+frame1 = new Frame( 0, 0, 0, 0, "the frame" );
+drawing.add( frame1 );
+MenuT = new Tile( 0, 0, 0, 0, "the tile" );
+drawing.add( MenuT );
+MenuT.setOrientation( HORIZONTAL_TILE );
+MenuT.setDivision( .15 );
 
+MenuT.getFrame1().setBackgroundPaint( "#99ff99" );
 
-//BSInclude xyPlot.js
-
-//BSInclude drawing.js
-
-
-
-//BSInclude scrollArea.js
-
-
-
-
-//My code (main.js)
-
+RightTile = new Tile( 0, 0, 0, 0, "child tile" );
+MenuT.setFrame2( RightTile );
+RightTile.setDivision( -.5 );
+RightTile.getFrame2().setBackgroundPaint( "#9999ff" );
 
 
 
 
+RightText = new Text(.5,.5,"RightText");
+RightText.setAlignment(ALIGN_CENTERED_MIDDLE);
+RightTile.getFrame2().add(RightText);
+
+menu = new MenuBar( 0, 75, 1, 25 );
+MenuT.getFrame1().add( menu );
+ 
+//  Fonts need to be changed from the top-level default.
+menu.setFontSize( 14 );
+ 
+//  Some fanciful titles for menu items.
+fileMenuTab = menu.addItem( "File" );
+dataMenuTab = menu.addItem( "Data" );
+plotMenuTab = menu.addItem( "Plot" );
+ 
+//  Help menu item is on the right of the screen.
+helpMenuTab = menu.addItem( "Help" );
+helpMenuTab.fromRight = ( true );
 
 
-
-//// setting up jdh  ///////////////////////
-testDrawing = new JDHDrawing( "testDraw" );
-bg = new Frame( 0, 0, 1, 1 );
-//bg.setCombinedPaint( rgba(247, 6, 6,.5) );
-bg.setBackgroundPaint( rgb(250,250,250) );
-testDrawing.add( bg );
-////////////////////////////////////////////
-//// setting up scrollbar  ////////////////////
-
-
-MainScroll = new ScrollArea(0,0,1,1);
-bg.add(MainScroll);
-
-////////////////////////////////////////////
-
-
-rect = new Rectangle(10,800,10,500);
-rect.setLineWidth( 10 );
-MainScroll.add(rect);
-
-////////////////////////Name and Picture///////////////////
-startY = 0;
-
-nameTile = new Text(200,400,"Jason Spitzak");
-nameTile.setAlignment(ALIGN_ABOVE_LEFT);
-nameTile.setFontSize(42);
-
-
-img = new ImageRectangle( 600, 200, 400, 400 );
+img = new ImageRectangle( .2, .2, .6, .6 );
 img.source( "./Me.jpg" );
-
-//Namebkg = new Rectangle(0,0,1,700);
-//rect2.setBackgroundPaint( rgba( .5, .5, .2 ,.05) );
-//Namebkg.setLineWidth( 0 );
-
-//MainScroll.add(Namebkg);
-MainScroll.add(nameTile);
-MainScroll.add(img);
-
-
-/////////////////////////////////////////////////////////
-startY = 700;
-
-
-
+RightTile.getFrame1().add(img);
 
 resize();
+
+
