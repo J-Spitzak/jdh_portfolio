@@ -28,19 +28,20 @@ RightText = new Text(.5,.5,"RightText");
 RightText.setAlignment(ALIGN_CENTERED_MIDDLE);
 RightTile.getFrame2().add(RightText);
 
-menu = new MenuBar( 0, 75, 1, 25 );
+menu = new MenuBar( 0, 60, 1, 50 );
 MenuT.getFrame1().add( menu );
  
 //  Fonts need to be changed from the top-level default.
-menu.setFontSize( 14 );
+menu.setFontSize( 30 );
  
 //  Some fanciful titles for menu items.
-fileMenuTab = menu.addItem( "File" );
-dataMenuTab = menu.addItem( "Data" );
-plotMenuTab = menu.addItem( "Plot" );
+fileMenuTab = menu.addItem( "About Me" );
+dataMenuTab = menu.addItem( "Eduction" );
+plotMenuTab = menu.addItem( "Experience" );
+plotMenuTab = menu.addItem( "Projects" );
  
 //  Help menu item is on the right of the screen.
-helpMenuTab = menu.addItem( "Help" );
+helpMenuTab = menu.addItem( "Contact" );
 helpMenuTab.fromRight = ( true );
 
 
