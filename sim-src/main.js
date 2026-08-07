@@ -39,7 +39,7 @@ bg = new Frame( 0, 0, 1, 1 );
 bg.setBackgroundPaint( rgb(250,250,250) );
 testDrawing.add( bg );
 ////////////////////////////////////////////
-//// setting up scrollbar  ////////////////////
+//// setting up scrollbar  /////////////////
 
 
 MainScroll = new ScrollArea(0,0,1,1);
@@ -52,7 +52,7 @@ rect = new Rectangle(10,800,10,500);
 rect.setLineWidth( 10 );
 MainScroll.add(rect);
 
-////////////////////////Name and Picture///////////////////
+////////////////////////Name and Picture/////
 startY = 0;
 
 nameTile = new Text(200,400,"Jason Spitzak");
