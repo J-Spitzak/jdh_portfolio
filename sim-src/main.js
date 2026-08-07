@@ -4,7 +4,8 @@
 //BSInclude tile.js
 //BSInclude boxButton.js
 //BSInclude menuBar.js
-
+//BSInclude textOutput.js
+//BSInclude menuPopup.js
 
 //////////// text
 
@@ -19,7 +20,7 @@ var EducationMain = "I am currently in my second year studying Mechanical Engine
 
 
 
-
+////////////////// setting up drawing and tiling ////////////////
 
 drawing = new JDHDrawing( "testDraw" );
 
@@ -37,18 +38,27 @@ MenuT.setFrame2( RightTile );
 RightTile.setDivision( -.5 );
 RightTile.getFrame2().setBackgroundPaint( "#9999ff" );
 
+////////////////// setting up drawing and tiling ////////////////
+//// setting up text ////////////////////////////////////////////
 
 
+textComponent = new Component(.5,.5,500,500);
+textComponent.setAlignment(ALIGN_CENTERED_MIDDLE);
+textComponent.setBackgroundPaint(rgba(0,0,0,0));
+RightTile.getFrame2().add(textComponent);
 
-RightText = new Text(.5,.5,AboutMain);
+RightText = new TextOutput(0,0,1,1);
 RightText.setAlignment(ALIGN_CENTERED_MIDDLE);
-RightTile.getFrame2().add(RightText);
+RightText.setBackgroundPaint(rgba(0,0,0,0));
+textComponent.add(RightText);
 
 function changeText(arg) {
+    console.log("hi");
     if (arg == "Main") {
         RightText.setText(AboutMain);
     }
     else if (arg == "Edu") {
+        console.log("hi!");
         RightText.setText(EducationMain);
     }
 }
@@ -58,6 +68,10 @@ RightTextHeader.setAlignment(ALIGN_CENTERED_MIDDLE);
 RightTile.getFrame2().add(RightTextHeader);
 RightTextHeader.setFontSize(60);
 
+//// setting up text ////////////////////////////////////////////
+///////////////////////// setting up menu ///////////////////////
+
+
 menu = new MenuBar( 0, .5, 1, 50 );
 menu.setAlignment(ALIGN_CENTERED_LEFT);
 MenuT.getFrame1().add( menu );
@@ -65,15 +79,23 @@ MenuT.getFrame1().add( menu );
 //  Fonts need to be changed from the top-level default.
 menu.setFontSize( 30 );
  
-//  Some fanciful titles for menu items.
-AboutMenuTab = menu.addItem( "About Me",changeText("Main") );
-EduMenuTab = menu.addItem( "Eduction",changeText("Edu") );
-ExpMenuTab = menu.addItem( "Experience",changeText("Exp") );
+//  menu items.
+AboutMenuTab = menu.addItem( "About Me",changeText,"Main" );
+EduMenuTab = menu.addItem( "Eduction",changeText,"Edu" );
+ExpMenuTab = menu.addItem( "Experience",changeText,"Exp" );
 ProjMenuTab = menu.addItem( "Projects" );
+
+//sub menus
+ProjMenu = new MenuPopup();
+ProjMenu.addItem( "AHS Plaques", changeText, "AHS" );
+ProjMenu.addItem( "Air Raid Siren", changeText, "ARS" );
+ProjMenuTab.popup = ProjMenu;
  
 //  Help menu item is on the right of the screen.
 helpMenuTab = menu.addItem( "Contact" );
 helpMenuTab.fromRight = ( true );
+
+///////////////////////// setting up menu ///////////////////////
 
 
 img = new ImageRectangle( .2, .2, .6, .6 );
