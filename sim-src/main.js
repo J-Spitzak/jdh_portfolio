@@ -28,30 +28,30 @@ Arlington Career Center <@n(now Grace Hopper Center).",
 
     "Proj":"ProjectMain",
 
-    "AHS":"In my Junior year of high school I was part of a group tasked with \
-creating plaques for the Arlington Historical Society (AHS). AHS wanted to \
-commemorate 3 slaves who had dies at the Ball Sellers House, a historic \
-Arlington landmark. We machined the plaques out of bronze, going through many \
-iterations and being in constant communication with the AHS team about their \
-requirements. I was mostly in charge of the machining and automation of the \
-procedure. Automation was critical as although we initially made 3 it laid \
-the groundwork for AHS's next contract of over 50 plaques to be placed in the \
+    "AHS":"In my Junior year of high school I was part of a group tasked with <@n\
+creating plaques for the Arlington Historical Society (AHS). AHS wanted to <@n\
+commemorate 3 slaves who had dies at the Ball Sellers House, a historic <@n\
+Arlington landmark. We machined the plaques out of bronze, going through many <@n\
+iterations and being in constant communication with the AHS team about their <@n\
+requirements. I was mostly in charge of the machining and automation of the <@n\
+procedure. Automation was critical as although we initially made 3 it laid <@n\
+the groundwork for AHS's next contract of over 50 plaques to be placed in the <@n\
 ground and over a hundred trophy's given to students by the school.",
 
-    "ARS":"An Air Raid Siren is a type of siren that uses a circular fan with \
-a matching amount of blades and baffles such that it creates cyclical \
-pressure waves while turning. To produce an audible amount of noise (>~150 Hz) \
-the blades have to spin increadibly fast. Under drill power my rotor rotates \
-14 times a second and reaches a surface speed of 11.5 m/s. But the whole idea \
-behind this was for it to be entirely mechanical so it can also be powered \
-with a crank, however I never got it to produce a significant audible noise \
-by crank power. Designing a system made out of plywood to be able to withstand \
+    "ARS":"An Air Raid Siren is a type of siren that uses a circular fan with <@n\
+a matching amount of blades and baffles such that it creates cyclical <@n\
+pressure waves while turning. To produce an audible amount of noise (>~150 Hz) <@n\
+the blades have to spin increadibly fast. Under drill power my rotor rotates <@n\
+14 times a second and reaches a surface speed of 11.5 m/s. But the whole idea <@n\
+behind this was for it to be entirely mechanical so it can also be powered <@n\
+with a crank, however I never got it to produce a significant audible noise <@n\
+by crank power. Designing a system made out of plywood to be able to withstand <@n\
 the speeds it is subjected to was a huge engineering challenge.",
 
-    "NextProj":"I am currently working on some upcoming projects that I hope \
-to finish by the end of the next semester. I have designed a stirling cooler \
-that I hope could reach cryogenic temperatures. I am also working on an \
-omnicopter (pircture left). An omnicopter is a type of drone capable of moving \
+    "NextProj":"I am currently working on some upcoming projects that I hope <@n\
+to finish by the end of the next semester. I have designed a stirling cooler <@n\
+that I hope could reach cryogenic temperatures. I am also working on an <@n\
+omnicopter (pircture left). An omnicopter is a type of drone capable of moving <@n\
 and rotating independently of it's position and orientation.",
 
     "Rob":"RobMain",
@@ -65,6 +65,20 @@ Solidworks and Excel but I also helped frequently with physical assembly",
 
     "Contact":"ContactMain"
 };
+
+var imageDict = {
+    "Main":"./Me.jpg",
+    "Edu":"./Olin.jpg",
+    "Exp":"./Me_Working.jpg",
+    "Proj":"./Me_Working_2.jpg",
+    "AHS":"./AHS.JPG",
+    "ARS":"./ARS.jpg",
+    "NextProj":"./Omnicopter.jpg",
+    "Rob":"./Robotics.jpg",
+    "TAI":"./TAI.webp",
+    "Contact":"./Me_Vienna.jpg"
+
+}
 
 
 
@@ -108,6 +122,7 @@ RightText.setText(TextDict["Main"]);
 function changeText(arg) {
     console.log(arg);
     RightText.setText(TextDict[arg]);
+    img.source(imageDict[arg]);
 }
 
 RtextComponent = new Component(.5,.1,1,.1);
@@ -142,6 +157,7 @@ ProjMenuTab = menu.addItem( "Projects" , changeText,"Proj");
 ProjMenu = new MenuPopup();
 ProjMenu.addItem( "AHS Plaques", changeText, "AHS" );
 ProjMenu.addItem( "Air Raid Siren", changeText, "ARS" );
+ProjMenu.addItem( "Marble Run Automoton", changeText, "Khaby" );
 ProjMenuTab.popup = ProjMenu;
 
 ExpMenu = new MenuPopup();
@@ -149,7 +165,7 @@ ExpMenu.addItem( "Robotics", changeText, "Rob" );
 ExpMenu.addItem( "Temple Allen", changeText, "TAI" );
 ExpMenuTab.popup = ExpMenu;
  
-//  Help menu item is on the right of the screen.
+//  contact menu item is on the right of the screen.
 helpMenuTab = menu.addItem( "Contact",changeText,"Contact" );
 helpMenuTab.fromRight = ( true );
 
