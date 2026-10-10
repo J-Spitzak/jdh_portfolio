@@ -8,7 +8,6 @@
 //BSInclude menuPopup.js
 
 //////////// text
-
 var TextDict = {
     "Main":"I am a second year Mechanical Engineering student <@nat the \
 Olin College of Engineering. I love working on <@nprojects that \
@@ -63,20 +62,23 @@ design changes to existing systems as well as leading the design of the <@n\
 newest version of one of their flagship products. Most of my work was in <@n\
 Solidworks and Excel but I also helped frequently with physical assembly",
 
-    "Contact":"ContactMain"
+    "Contact":"ContactMain",
+
+    "Khaby":""
 };
 
 var imageDict = {
     "Main":"./Me.jpg",
     "Edu":"./Olin.jpg",
-    "Exp":"./Me_Working.jpg",
-    "Proj":"./Me_Working_2.jpg",
+    "Exp":"./Me_mask.jpg",
+    "Proj":"./Me_mask.jpg",
     "AHS":"./AHS.JPG",
     "ARS":"./ARS.jpg",
-    "NextProj":"./Omnicopter.jpg",
-    "Rob":"./Robotics.jpg",
+    "NextProj":"./Me_mask.jpg",
+    "Rob":"./Me_sign.jpg",
     "TAI":"./TAI.webp",
-    "Contact":"./Me_Vienna.jpg"
+    "Contact":"./Me_Vienna.jpg",
+    "Khaby":"Khaby.jpg"
 
 }
 
