@@ -125,6 +125,13 @@ function changeText(arg) {
     console.log(arg);
     RightText.setText(TextDict[arg]);
     img.source(imageDict[arg]);
+
+
+    var ratio = img.getWidth() / img.getHeight();
+    console.info(ratio);
+
+
+    img.redraw();
 }
 
 RtextComponent = new Component(.5,.1,1,.1);
@@ -175,6 +182,9 @@ helpMenuTab.fromRight = ( true );
 
 
 img = new ImageRectangle( .2, .2, .6, .6 );
+//img = new ImageRectangle( .5 - .4, .5-.4, .5+.3, .5+.3 );
+
+img.setFill( true );
 img.source( "./Me.jpg" );
 RightTile.getFrame1().add(img);
 
