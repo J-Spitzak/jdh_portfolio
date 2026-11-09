@@ -82,6 +82,20 @@ var imageDict = {
 
 }
 
+var imageRectangleDict = {
+    "Main": new ImageRectangle( .2, .2, .6, .6 ),
+    "Edu":new ImageRectangle( .2, .2, .6, .6 ),
+    "Exp":new ImageRectangle( .2, .2, .6, .6 ),
+    "Proj":new ImageRectangle( .2, .2, .6, .6 ),
+    "AHS":new ImageRectangle( .2, .2, .6, .6 ),
+    "ARS":new ImageRectangle( .2, .2, .6, .6 ),
+    "NextProj":new ImageRectangle( .2, .2, .6, .6 ),
+    "Rob":new ImageRectangle( .2, .2, .6, .6 ),
+    "TAI":new ImageRectangle( .2, .2, .6, .6 ),
+    "Contact":new ImageRectangle( .2, .2, .6, .6 ),
+    "Khaby":new ImageRectangle( .2, .2, .6, .6 )
+}
+
 
 
 
@@ -180,6 +194,15 @@ helpMenuTab.fromRight = ( true );
 
 ///////////////////////// setting up menu ///////////////////////
 
+/*
+for (var i = 0; i <  imageRectangleDict.keys().length;i++) {
+    key = imageRectangleDict.keys()[i];
+    imageRectangleDict[key].setFill( true );
+    imageRectangleDict[key].source( imageDict[key] );
+    RightTile.getFrame1().add(imageRectangleDict[key]);
+    imageRectangleDict[key].hide();
+}
+*/
 
 img = new ImageRectangle( .2, .2, .6, .6 );
 //img = new ImageRectangle( .5 - .4, .5-.4, .5+.3, .5+.3 );
