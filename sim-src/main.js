@@ -84,7 +84,7 @@ var imageDict = {
 
 var imageRectangleDict = {
     "Main": new ImageRectangle( .2, .2, .6, .6 ),
-    "Edu":new ImageRectangle( .2, .2, .6, .6 ),
+    "Edu":new ImageRectangle( .2, .2, .6, .8 ),
     "Exp":new ImageRectangle( .2, .2, .6, .6 ),
     "Proj":new ImageRectangle( .2, .2, .6, .6 ),
     "AHS":new ImageRectangle( .2, .2, .6, .6 ),
@@ -96,8 +96,12 @@ var imageRectangleDict = {
     "Khaby":new ImageRectangle( .2, .2, .6, .6 )
 }
 
-
-
+function HideAllPictures() {
+    for (var i = 0; i <=  Object.keys(imageRectangleDict).length;i++) {
+        imageRectangleDict[key].setVisible( false );
+        imageRectangleDict[key].redraw();
+    }
+};
 
 
 
@@ -138,14 +142,15 @@ RightText.setText(TextDict["Main"]);
 function changeText(arg) {
     console.log(arg);
     RightText.setText(TextDict[arg]);
-    img.source(imageDict[arg]);
+    //img.source(imageDict[arg]);
+
+    HideAllPictures();
+    imageRectangleDict[arg].setVisible( true );
+    imageRectangleDict[arg].redraw();
 
 
-    var ratio = img.getWidth() / img.getHeight();
-    console.info(ratio);
-
-
-    img.redraw();
+    //img.redraw();
+    //img.setVisible(false);
 }
 
 RtextComponent = new Component(.5,.1,1,.1);
@@ -194,22 +199,21 @@ helpMenuTab.fromRight = ( true );
 
 ///////////////////////// setting up menu ///////////////////////
 
-/*
-for (var i = 0; i <  imageRectangleDict.keys().length;i++) {
-    key = imageRectangleDict.keys()[i];
+for (var i = 0; i <  Object.keys(imageRectangleDict).length;i++) {
+    key = Object.keys(imageRectangleDict)[i];
     imageRectangleDict[key].setFill( true );
     imageRectangleDict[key].source( imageDict[key] );
     RightTile.getFrame1().add(imageRectangleDict[key]);
-    imageRectangleDict[key].hide();
+    imageRectangleDict[key].setVisible( false );
 }
-*/
 
+/*
 img = new ImageRectangle( .2, .2, .6, .6 );
-//img = new ImageRectangle( .5 - .4, .5-.4, .5+.3, .5+.3 );
 
 img.setFill( true );
-img.source( "./Me.jpg" );
-RightTile.getFrame1().add(img);
+img.setVisible(false);
+img.source( "./Me.jpg" ); 
+RightTile.getFrame1().add(img);*/
 
 resize();
 
