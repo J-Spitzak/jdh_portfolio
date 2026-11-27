@@ -64,11 +64,17 @@ Solidworks and Excel but I also helped frequently with physical assembly",
 
     "Contact":"ContactMain",
 
-    "Khaby":""
+    "Khaby":"",
+
+    "MakeMIT":"",
+
+    "MarkForged":"",
+
+    "7Segment":""
 };
 
 var imageDict = {
-    "Main":"./Me.jpg",
+    "Main":"./Me_Bridge.jpg",
     "Edu":"./Olin.jpg",
     "Exp":"./Me_mask.jpg",
     "Proj":"./Me_mask.jpg",
@@ -78,30 +84,28 @@ var imageDict = {
     "Rob":"./Me_sign.jpg",
     "TAI":"./TAI.webp",
     "Contact":"./Me_Vienna.jpg",
-    "Khaby":"Khaby.jpg"
-
+    "Khaby":"Khaby.jpg",
+    "MakeMIT":"MakeMIT.jpg",
+    "MarkForged":"MarkForged.jpg",
+    "7Segment":"7Segment.jpg"
 }
 
 var imageRectangleDict = {
-    "Main": new ImageRectangle( .2, .2, .6, .6 ),
-    "Edu":new ImageRectangle( .2, .2, .6, .8 ),
-    "Exp":new ImageRectangle( .2, .2, .6, .6 ),
-    "Proj":new ImageRectangle( .2, .2, .6, .6 ),
-    "AHS":new ImageRectangle( .2, .2, .6, .6 ),
-    "ARS":new ImageRectangle( .2, .2, .6, .6 ),
-    "NextProj":new ImageRectangle( .2, .2, .6, .6 ),
-    "Rob":new ImageRectangle( .2, .2, .6, .6 ),
-    "TAI":new ImageRectangle( .2, .2, .6, .6 ),
-    "Contact":new ImageRectangle( .2, .2, .6, .6 ),
-    "Khaby":new ImageRectangle( .2, .2, .6, .6 )
+    "Main": new ImageRectangle( .2, .1, .6, .8 ),
+    "Edu":new ImageRectangle( .1, .2, .8, .6 ),
+    "Exp":new ImageRectangle( .2, .1, .6, .8 ),
+    "Proj":new ImageRectangle( .2, .1, .6, .8 ),
+    "AHS":new ImageRectangle( .1, .2, .8, .6 ),
+    "ARS":new ImageRectangle( .1, .2, .8, .6 ),
+    "NextProj":new ImageRectangle( .2, .1, .6, .8 ),
+    "Rob":new ImageRectangle( .2, .1, .6, .8 ),
+    "TAI":new ImageRectangle( .1, .2, .8, .6 ),
+    "Contact":new ImageRectangle( .2, .1, .6, .8 ),
+    "Khaby":new ImageRectangle( .1, .2, .8, .6 ),
+    "MakeMIT":new ImageRectangle( .1, .2, .8, .6 ),
+    "MarkForged":new ImageRectangle( .2, .1, .6, .8 ),
+    "7Segment":new ImageRectangle( .2, .1, .6, .8 )
 }
-
-function HideAllPictures() {
-    for (var i = 0; i <=  Object.keys(imageRectangleDict).length;i++) {
-        imageRectangleDict[key].setVisible( false);
-        //imageRectangleDict[key].doRedraw();
-    }
-};
 
 
 
@@ -142,17 +146,12 @@ RightText.setText(TextDict["Main"]);
 function changeText(arg) {
     console.log(arg);
     RightText.setText(TextDict[arg]);
-    //img.source(imageDict[arg]);
 
-    // HideAllPictures();
-    // imageRectangleDict[arg].setVisible( true );
-    //imageRectangleDict[arg].doRedraw();
+
+
     RightTile.getFrame1().clear();
     RightTile.getFrame1().add( imageRectangleDict[arg] );
-RightTile.getFrame1().doRedraw();
-
-    //img.redraw();
-    //img.setVisible(false);
+    RightTile.getFrame1().doRedraw();
 }
 
 RtextComponent = new Component(.5,.1,1,.1);
@@ -188,6 +187,9 @@ ProjMenu = new MenuPopup();
 ProjMenu.addItem( "AHS Plaques", changeText, "AHS" );
 ProjMenu.addItem( "Air Raid Siren", changeText, "ARS" );
 ProjMenu.addItem( "Marble Run Automoton", changeText, "Khaby" );
+ProjMenu.addItem( "MakeMIT Laser Turret", changeText, "MakeMIT" );
+ProjMenu.addItem( "Markforged Frother", changeText, "MarkForged" );
+ProjMenu.addItem( "Mechanical 7 Segment Display", changeText, "7Segment" );
 ProjMenuTab.popup = ProjMenu;
 
 ExpMenu = new MenuPopup();
@@ -205,17 +207,9 @@ for (var i = 0; i <  Object.keys(imageRectangleDict).length;i++) {
     key = Object.keys(imageRectangleDict)[i];
     imageRectangleDict[key].setFill( true );
     imageRectangleDict[key].source( imageDict[key] );
-    //RightTile.getFrame1().add(imageRectangleDict[key]);
-    //imageRectangleDict[key].setVisible( false );
 }
+RightTile.getFrame1().add(imageRectangleDict["Main"]);
 
-/*
-img = new ImageRectangle( .2, .2, .6, .6 );
-
-img.setFill( true );
-img.setVisible(false);
-img.source( "./Me.jpg" ); 
-RightTile.getFrame1().add(img);*/
 
 resize();
 
