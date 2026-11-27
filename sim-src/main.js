@@ -98,8 +98,8 @@ var imageRectangleDict = {
 
 function HideAllPictures() {
     for (var i = 0; i <=  Object.keys(imageRectangleDict).length;i++) {
-        imageRectangleDict[key].setVisible( false );
-        imageRectangleDict[key].redraw();
+        imageRectangleDict[key].setVisible( false);
+        //imageRectangleDict[key].doRedraw();
     }
 };
 
@@ -144,10 +144,12 @@ function changeText(arg) {
     RightText.setText(TextDict[arg]);
     //img.source(imageDict[arg]);
 
-    HideAllPictures();
-    imageRectangleDict[arg].setVisible( true );
-    imageRectangleDict[arg].redraw();
-
+    // HideAllPictures();
+    // imageRectangleDict[arg].setVisible( true );
+    //imageRectangleDict[arg].doRedraw();
+    RightTile.getFrame1().clear();
+    RightTile.getFrame1().add( imageRectangleDict[arg] );
+RightTile.getFrame1().doRedraw();
 
     //img.redraw();
     //img.setVisible(false);
@@ -203,8 +205,8 @@ for (var i = 0; i <  Object.keys(imageRectangleDict).length;i++) {
     key = Object.keys(imageRectangleDict)[i];
     imageRectangleDict[key].setFill( true );
     imageRectangleDict[key].source( imageDict[key] );
-    RightTile.getFrame1().add(imageRectangleDict[key]);
-    imageRectangleDict[key].setVisible( false );
+    //RightTile.getFrame1().add(imageRectangleDict[key]);
+    //imageRectangleDict[key].setVisible( false );
 }
 
 /*
